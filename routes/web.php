@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return \Illuminate\Support\Facades\Redirect::away('https://www.youtube.com/c/AyTiQaqa%C5%9F/videos');
 });
