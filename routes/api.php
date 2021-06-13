@@ -15,3 +15,36 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/auth/logout', [AuthController::class, 'logout']);
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// When the route is not defined
+Route::get('/{any}', function () {
+    return response()->json([
+        'status' => 'Error',
+        'message' => "The route is not defind!"
+    ], 404);
+})->where('any', '.*')->name('notFound');
+
+
+Route::post('/{any}', function () {
+    return response()->json([
+        'status' => 'Error',
+        'message' => "The route is not defind!"
+    ], 404);
+})->where('any', '.*')->name('notFound');
