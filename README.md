@@ -47,3 +47,7 @@
 - [Discord](https://discord.gg/YTKU2SY6N3)
 
 
+## Maddi dəstək ola bilərsiz
+
+- [PayPal vəya Credit kartla](https://www.paypal.com/donate/?business=CD3ZQ7X38VXNY&no_recurring=0&item_name=AyTi+Qaqa%C5%9Fa+d%C9%99st%C9%99k)
+
