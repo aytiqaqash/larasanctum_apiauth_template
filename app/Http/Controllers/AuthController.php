@@ -36,6 +36,9 @@ class AuthController extends Controller
             'password' => bcrypt($attr['password']),
             'email' => $attr['email']
         ]);
+
+        $user->assignRole('guest');
+
         // Yaranan istifadəçi üçün token göndəririk.
         return $this->success( [
             'token' => $user->createToken('API Token')->plainTextToken
