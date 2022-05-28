@@ -28,6 +28,7 @@ class AuthController extends Controller
             return $this->error('Tələblər ödənmir!', 401,  $validator->errors());
         }else{
             $attr = $request->all();
+            $attr['password'] = bcrypt($attr['password']);
             // User modeli ilə istifadəçi yaradırıq.
             $user = User::create($attr);
             $user->assignRole('guest');
@@ -48,21 +49,21 @@ class AuthController extends Controller
 
 
         $validator = Validator::make($attr,[
-            'email' => 'required|string|email',
-            'password' => 'required|string|min:6'
+            'email' => 'required|email',
+            'password' => 'required'
         ]);
 
         if($validator->fails()){
             return $this->error('Tələblər ödənmir!', 401,  $validator->errors());
-        }else{
-            $attr = $request->all();
         }
 
+        $attr = $request->all();
 
-        // Əgər email vəya pass səhv olsa
+        // Əgər email vəya pass səhv olarsa
         if (!Auth::attempt($attr)) {
             return $this->error('Məlumatlar düzgün daxil edilməyib', 401);
         }
+
         // Əgər email və password düz olarsa
         return $this->success([
             'token' => auth()->user()->createToken('API Token')->plainTextToken
